@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+
+  mysqldb:
+    image: mysql:5.7
+    restart: unless-stopped
+    environment:
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: 123456
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: test
+    ports:
+      - 3306:3306
+    volumes:
+      # путь локальной папки бд
+      - ./mysql57:/var/lib/mysql
